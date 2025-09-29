@@ -1,9 +1,17 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User, MapPin } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  
+  const isActive = (path: string) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path === "/packages" && location.pathname === "/packages") return true;
+    return false;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -22,13 +30,23 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a 
+              href="/" 
+              className={`transition-colors font-medium ${
+                isActive("/") ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
+            >
               HOME
             </a>
             <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
               ABOUT US
             </a>
-            <a href="/packages" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a 
+              href="/packages" 
+              className={`transition-colors font-medium ${
+                isActive("/packages") ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
+            >
               PACKAGE
             </a>
             <a href="#your-packages" className="text-foreground hover:text-primary transition-colors font-medium">
@@ -62,13 +80,23 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
+              <a 
+                href="/" 
+                className={`transition-colors font-medium ${
+                  isActive("/") ? "text-primary" : "text-foreground hover:text-primary"
+                }`}
+              >
                 HOME
               </a>
               <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
                 ABOUT US
               </a>
-              <a href="/packages" className="text-foreground hover:text-primary transition-colors font-medium">
+              <a 
+                href="/packages" 
+                className={`transition-colors font-medium ${
+                  isActive("/packages") ? "text-primary" : "text-foreground hover:text-primary"
+                }`}
+              >
                 PACKAGE
               </a>
               <a href="#your-packages" className="text-foreground hover:text-primary transition-colors font-medium">
