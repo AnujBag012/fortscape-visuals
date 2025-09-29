@@ -44,7 +44,7 @@ const PlacesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {places.map((place, index) => (
             <DestinationCard
               key={index}
@@ -58,7 +58,7 @@ const PlacesSection = () => {
         </div>
 
         {/* Empty slots for future destinations */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
           {[1, 2, 3, 4].map((item) => (
             <div
               key={item}

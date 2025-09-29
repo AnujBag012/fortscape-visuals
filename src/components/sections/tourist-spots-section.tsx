@@ -14,7 +14,7 @@ const TouristSpotsSection = () => {
         </div>
 
         {/* Placeholder grid for future tourist spots */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map((item) => (
             <div
               key={item}
