@@ -7,6 +7,7 @@ interface DestinationCardProps {
   location?: string;
   rating?: number;
   description?: string;
+  price?: string;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ const DestinationCard = ({
   location, 
   rating = 4.8, 
   description,
+  price,
   className = "" 
 }: DestinationCardProps) => {
   return (
@@ -52,9 +54,17 @@ const DestinationCard = ({
         )}
         
         {description && (
-          <p className="text-sm text-white/90 line-clamp-2">
+          <p className="text-sm text-white/90 line-clamp-2 mb-3">
             {description}
           </p>
+        )}
+        
+        {price && (
+          <div className="text-right">
+            <span className="text-lg font-bold text-primary bg-background/20 backdrop-blur-sm rounded-lg px-3 py-1">
+              {price}
+            </span>
+          </div>
         )}
       </div>
 

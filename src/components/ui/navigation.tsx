@@ -28,7 +28,7 @@ const Navigation = () => {
             <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
               ABOUT US
             </a>
-            <a href="#packages" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/packages" className="text-foreground hover:text-primary transition-colors font-medium">
               PACKAGE
             </a>
             <a href="#your-packages" className="text-foreground hover:text-primary transition-colors font-medium">
@@ -68,7 +68,7 @@ const Navigation = () => {
               <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
                 ABOUT US
               </a>
-              <a href="#packages" className="text-foreground hover:text-primary transition-colors font-medium">
+              <a href="/packages" className="text-foreground hover:text-primary transition-colors font-medium">
                 PACKAGE
               </a>
               <a href="#your-packages" className="text-foreground hover:text-primary transition-colors font-medium">
