@@ -10,6 +10,7 @@ const Navigation = () => {
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
     if (path === "/packages" && location.pathname === "/packages") return true;
+    if (path === "/your-packages" && location.pathname === "/your-packages") return true;
     return false;
   };
 
@@ -49,7 +50,12 @@ const Navigation = () => {
             >
               PACKAGE
             </a>
-            <a href="#your-packages" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a 
+              href="/your-packages" 
+              className={`transition-colors font-medium ${
+                isActive("/your-packages") ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
+            >
               YOUR PACKAGES
             </a>
           </div>
@@ -99,7 +105,12 @@ const Navigation = () => {
               >
                 PACKAGE
               </a>
-              <a href="#your-packages" className="text-foreground hover:text-primary transition-colors font-medium">
+              <a 
+                href="/your-packages" 
+                className={`transition-colors font-medium ${
+                  isActive("/your-packages") ? "text-primary" : "text-foreground hover:text-primary"
+                }`}
+              >
                 YOUR PACKAGES
               </a>
               <div className="flex items-center space-x-4 pt-4">

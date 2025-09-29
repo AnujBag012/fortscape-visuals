@@ -1,10 +1,20 @@
+import { useState } from "react";
 import DestinationCard from "@/components/ui/destination-card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { X } from "lucide-react";
 import netarhatImage from "@/assets/netarhat.jpg";
 import elaImage from "@/assets/ela-national-park.jpg";
 import templeImage from "@/assets/jagannath-temple.jpg";
 import fortImage from "@/assets/navratangarh-fort.jpg";
 
 const PlacesSection = () => {
+  const [selectedPlace, setSelectedPlace] = useState<any>(null);
   const places = [
     {
       image: netarhatImage,
@@ -46,16 +56,38 @@ const PlacesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {places.map((place, index) => (
-            <DestinationCard
-              key={index}
-              image={place.image}
-              title={place.title}
-              location={place.location}
-              description={place.description}
-              className="h-80"
-            />
+            <div key={index} onClick={() => setSelectedPlace(place)}>
+              <DestinationCard
+                image={place.image}
+                title={place.title}
+                location={place.location}
+                description={place.description}
+                className="h-80"
+              />
+            </div>
           ))}
         </div>
+
+        {/* Place Details Dialog */}
+        <Dialog open={!!selectedPlace} onOpenChange={() => setSelectedPlace(null)}>
+          <DialogContent className="max-w-2xl">
+            <DialogClose className="absolute right-6 top-6 rounded-full bg-red-500 hover:bg-red-600 text-white p-2 z-50">
+              <X className="h-5 w-5" />
+            </DialogClose>
+            {selectedPlace && (
+              <div className="pt-4">
+                <DialogHeader>
+                  <DialogTitle className="text-3xl font-bold mb-4">
+                    {selectedPlace.title}
+                  </DialogTitle>
+                </DialogHeader>
+                <p className="text-foreground/80 leading-relaxed">
+                  {selectedPlace.title}, often called the "Queen of Chotanagpur Plateau", is a serene hill station located in the Latehar district of Jharkhand, about 150 km from Ranchi. Nestled at an altitude of around 1,128 meters, it is famous for its pleasant climate, lush greenery, and breathtaking sunrise and sunset views.
+                </p>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Empty slots for future destinations */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
