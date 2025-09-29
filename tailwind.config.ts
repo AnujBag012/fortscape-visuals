@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Travel theme colors
+        forest: "hsl(var(--forest-green))",
+        earth: "hsl(var(--earth-brown))",
+        sky: "hsl(var(--sky-blue))",
+        sunrise: "hsl(var(--sunrise-orange))",
+        mountain: "hsl(var(--mountain-gray))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
